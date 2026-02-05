@@ -6,14 +6,10 @@
       <div class="info">
 
         <!-- Avatar 160x160 with online status -->
-        <cc-avatar
-          src="/images/avatar-anishgiri.png"
-          :size="160"
-          :status="{ isOnline: true }"
-          username="AnishGiri"
-          :retina-support="false"
-          :is-lazy-loading="false"
-        />
+        <div class="avatar-wrapper">
+          <img src="/images/avatar-anishgiri.png" alt="AnishGiri" class="avatar-img" />
+          <span class="online-dot"></span>
+        </div>
 
         <!-- Player Info: header on top, meta pushed to bottom -->
         <div class="player-info">
@@ -117,7 +113,6 @@
 <script setup>
 import { ref } from 'vue'
 import {
-  CcAvatar,
   CcButton,
   CcIconButton,
   CcTabGroup,
@@ -164,12 +159,30 @@ const tabList = [
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Avatar: never shrink, hold 160x160 */
-.info :deep(.cc-avatar),
-.info :deep(cc-avatar) {
+/* Avatar */
+.avatar-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
   flex-shrink: 0;
-  min-width: 160px;
-  min-height: 160px;
+}
+
+.avatar-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.online-dot {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 20px;
+  height: 20px;
+  background: #81B64C;
+  border-radius: 50%;
+  outline: 5px solid #272522;
 }
 
 /* ===== PLAYER INFO ===== */
