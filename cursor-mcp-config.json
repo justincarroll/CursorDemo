@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "chesscom-design-system": {
+      "command": "npx",
+      "args": ["-y", "-p", "@chesscom/design-system-mcp@latest", "chesscom-ds-mcp"]
+    },
+    "figma": {
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp", "--stdio"]
+    }
+  }
+}

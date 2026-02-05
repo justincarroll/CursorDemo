@@ -1,0 +1,14 @@
+---
+description: Use Chess.com Design System components, tokens, and patterns
+globs: "**/*.vue,**/*.js,**/*.ts"
+alwaysApply: true
+---
+
+# Chess.com Design System
+
+- Use **@chesscom/design-system** for all UI: import components (e.g. `CcButton`, `CcIcon`, `CcCard`) and use Design System CSS classes (e.g. `cc-heading-large-bold`, `cc-text-large`, `cc-paragraph-medium`).
+- Use **design tokens** for spacing, color, and typography: `var(--color-bg-primary)`, `var(--space-20)`, `var(--radius-medium)`, `var(--font-family-system)`, etc.
+- Keep **globals** in `index.html`: `window.chesscom`, `window.context`. Keep **body** with class `dark-mode` for theming.
+- **CSS order** in main.js: `variables.css` → `cc-utils.css` → `style.css`. Keep **font-size reset** in app styles: `html { font-size: 62.5%; }`.
+- Provide **design-system-key** in the app (e.g. in `App.vue`) with `routes` and `trans` so components that need them work.
+- Prefer Design System components and tokens over custom CSS or one-off styles.
