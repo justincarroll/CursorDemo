@@ -7,4 +7,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 const app = createApp(App)
+
+// Global error handler so a single component error doesn't blank the whole app
+app.config.errorHandler = (err, instance, info) => {
+  console.error('[Vue Error]', err, info)
+}
+
 app.mount('#app')

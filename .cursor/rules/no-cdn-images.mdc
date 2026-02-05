@@ -1,0 +1,25 @@
+---
+description: Never use Chess.com CDN URLs in prototype code — use local images instead
+globs: "**/*.vue,**/*.js,**/*.ts,**/*.html"
+alwaysApply: true
+---
+
+# No CDN Image References
+
+This project is a prototype that runs on localhost. Chess.com CDN domains are not accessible from localhost and will produce broken images.
+
+## Rules
+
+- **Never** reference `images.chesscomfiles.com`, `chess.com/bundles/`, or any Chess.com CDN URL in source code.
+- **Always** use local images from `public/images/` with paths like `/images/filename.png`.
+- When a Design System component (e.g. `cc-avatar`) needs a `src` prop, pass a local path: `src="/images/avatar-anishgiri.png"`.
+- Do **not** use `cc-icon` with `variant="color"` — it generates CDN URLs internally. Instead, download the icon from Figma and use a local `<img>` tag.
+- `cc-icon` with `variant="glyph"` (the default) is fine — glyph SVGs are bundled in the Design System package.
+- If a new image is needed, download it from the Figma file first using the Figma MCP, save to `public/images/`, then reference locally.
+
+## Blocked domains
+
+```
+images.chesscomfiles.com
+www.chess.com/bundles/
+```
